@@ -12,6 +12,71 @@
         *{
             margin: 0;
         }
+        body main #lancamentos{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-image: url('./layout.jpg');
+            height: 80vh;
+        
+        }
+        body main #lancamentos #carousel-ball{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2px;
+        }
+        body main #lancamentos #carousel-ball div{
+            margin: 0 1px;
+            background-color: white;
+        }
+        body main #lancamentos>header{
+            display: flex;
+            justify-content: center;
+        }
+        body main #lancamentos main{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        body main #lancamentos main #frame iframe{
+            height: 60vh;
+            width: 40vw;
+            min-width: 300px;
+        }
+        body main #lancamentos main #info{
+            display: flex;
+            flex-direction: column;
+            height: 60vh;
+            min-width: 300px;
+            width: 40vw;
+            background-color: white;
+            font-size: 0.8em;
+        }
+        body main #lancamentos main #info #info-header{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body main #lancamentos main #info #info-main header{
+            display: flex;
+            flex-wrap: wrap;
+            margin:0 5px ;
+        }
+        body main #lancamentos main #info #info-main div{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        body main #lancamentos main #info #info-main div div{
+            display: flex;
+            align-items: baseline;
+            margin: 0 5px;
+        }
+        div[ball]{
+            background-color: aqua;
+            height: 5px;
+            width: 5px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
@@ -21,7 +86,7 @@
             <h1 id="title-write">PAlucas</h1>
         </header>
         <main id="redirect">
-            <a href="">lançamentos</a>
+            <a href="#lancamentos">lançamentos</a>
             <a href="">em destaque</a>
             <a href="">avaliações</a>
             <a href="">entrevista & makingof</a>
@@ -41,7 +106,7 @@
                 <h1>PAlucas</h1>
             </header>
             <main>
-                <a href="">lançamentos</a>
+                <a href="#lancamentos">lançamentos</a>
                 <a href="">em destaque</a>
                 <a href="">avaliações</a>
                 <a href="">entrevista & makingof</a>
@@ -57,7 +122,7 @@
         </div>
         <div class="modal fade" id="modalCell" tabindex="-1" role="dialog" aria-labelledby="modalCell" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <a href="">lançamentos</a>
+                <a href="#lancamentos">lançamentos</a>
                 <a href="">em destaque</a>
                 <a href="">avaliações</a>
                 <a href="">entrevista & makingof</a>
@@ -66,10 +131,56 @@
           </div>
     </nav>
     <main>
-        <div>
-            <header></header>
-            <div></div>
-            <div></div>
+        <div id="lancamentos">
+            <header>
+                <h1>Lançamentos</h1>
+            </header>
+            <main>
+                <div id="frame">
+                    <iframe src="https://www.youtube.com/embed/ixz-r1iZZpU" frameborder="0"></iframe>
+                </div>
+                <div id="info">
+                    <header id="info-header">
+                        <h1>O Gambito da Rainha</h1>
+                    </header>
+                    <main id="info-main">
+                        <header>
+                            <p><h5>Sinopse:</h5>Em um orfanato nos anos 1950, uma garota-prodígio do xadrez luta contra o vício em uma jornada improvável para se tornar a número 1 do mundo.</p>
+                        </header>
+                        <div>
+                            <div><h5>Diretor:</h5><p>Scott Frank</p></div>
+                            <div><h5>Roteiro:</h5><p>Scott Frank</p></div>
+                            <div><h5>Estreia:</h5><p>27/11/2020</p></div>
+                        </div>
+                    </main>
+                    <footer id="other-info">
+                        <div>
+                            <header>
+                                <h4>Elenco</h4>
+                            </header>
+                            <main>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </main>
+                        </div>
+                        <div>
+                            <header>
+                                <h4>Avaliação</h4>
+                            </header>
+                            <div>
+
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </main>
+            <footer id="carousel-ball">
+                <div id="first-circle" ball ></div>
+                <div id="second-circle" ball></div>
+                <div id="third-circle" ball ></div>
+            </footer>
         </div>
         <div>
             <div>
