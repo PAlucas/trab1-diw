@@ -1,0 +1,137 @@
+body nav#navbar{
+    display: flex;
+    height: 10vh;
+    background-color: #5968b9;
+}
+body nav #logo-div{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    width: 15vw;
+}
+body nav #logo-div img#pic-logo{
+    height: 8vh;
+    border-radius: 50%;
+}
+body nav #logo-div #title-write{
+    font-style: italic;
+}
+body nav main#redirect{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 70vw;
+}
+body nav main#redirect a{
+    text-decoration: none;
+    color: #000;
+}
+body nav main#redirect a:hover{
+    box-shadow: 1px 1px 1px black;
+}
+body nav aside#input-div{
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+}
+body nav aside#sidebar{
+    background-color: #fff;
+    display: none;
+    height: 100vh;
+    width: 33%;
+    position: absolute;
+    flex-direction: column;
+    right: 0%;
+}
+body nav aside#sidebar header{
+    background-color: #7968b9;
+    display: flex;
+    align-items: center;
+}
+body nav aside#sidebar header img{
+    height: 5vh;
+    border-radius: 50%;
+}
+body nav aside#sidebar header h1{
+    font-style: italic;
+}
+body nav aside#sidebar main{
+    background-image: linear-gradient(#7968b9, #5968b9);
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+body nav aside#sidebar main a{
+    text-decoration: none;
+    color: #000;
+}
+body nav aside#sidebar main #hide-sidebar{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+body nav aside#sidebar main a:hover{
+    background-color: #c968b9;
+}
+body nav .toggle{
+    display: none;
+    margin: 0 10px;
+    align-items: center;
+    justify-content: center;
+}
+body nav #modalCell div{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+body nav #modalCell div a{
+    text-decoration: none;
+    color: #fff;
+}
+@media (min-width:700px) and (max-width:1020px){
+    body nav aside#input-div{
+        display: none;
+    }
+    body nav main#redirect{
+        width: 85vw;
+        justify-content: end;
+    }
+    body nav main#redirect a{
+        margin: 0 5px 0 0;
+    }
+}
+@media (min-width:480px) and (max-width:700px){
+    body nav aside#input-div{
+        display: none;
+    }
+    body nav main#redirect{
+        display:none;
+    }
+    body nav #toggle-sidebar{
+        display: flex;
+    }
+    body nav#navbar{
+        justify-content: space-between;
+    }
+}
+@media (max-width:480px){
+    body nav#navbar{
+        justify-content: space-between;
+    }
+    body nav aside#input-div{
+        display: none;
+    }
+    body nav main#redirect{
+        display:none;
+    }
+    body nav #toggle-modal{
+        display: flex;
+    }
+}
