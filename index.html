@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./style/navbar.css">
@@ -20,6 +21,9 @@
             height: 80vh;
         
         }
+        body main #lancamentos #pass-for-cell{
+            display: none;
+        }
         body main #lancamentos #carousel-ball{
             display: flex;
             justify-content: center;
@@ -27,7 +31,6 @@
         }
         body main #lancamentos #carousel-ball div{
             margin: 0 1px;
-            background-color: white;
         }
         body main #lancamentos>header{
             display: flex;
@@ -71,11 +74,63 @@
             align-items: baseline;
             margin: 0 5px;
         }
+        body main #lancamentos main #info #other-info{
+            margin: 0 5px;
+        }
+        body main #lancamentos .pass{
+            color: white;
+        }
+        i:hover{
+            cursor: pointer;
+        }
         div[ball]{
-            background-color: aqua;
             height: 5px;
             width: 5px;
             border-radius: 50%;
+        }
+        body main #lancamentos #icon-right{
+            display: flex;
+            align-items: center;
+        }
+        body main #lancamentos #icon-left{
+            display: flex;
+            align-items: center;
+        }
+        .checked {
+            color: orange;
+        }
+        .active{
+            background-color: #777;
+        }
+        .ball{
+            background-color: white;
+        }
+        @media (max-width: 845px){
+            body main #lancamentos  {
+                flex-direction: column;
+                align-items: center;
+                height: max-content;
+                background-image: url('./fotoCell.jpg');
+            }
+            body main #lancamentos #pass-for-cell{
+                display: block;
+            }
+            body main #lancamentos main #info{
+                width: 70vw;
+                font-size: 0.8em;
+            }
+            body main #lancamentos main #frame iframe{
+                width: 70vw;
+            }
+            body main #lancamentos #icon-right{
+                display: none;
+            }
+            body main #lancamentos #icon-left{
+                display: none;
+            }
+            body main #lancamentos #carousel-ball{
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
@@ -135,7 +190,14 @@
             <header>
                 <h1>Lançamentos</h1>
             </header>
+            <div id="pass-for-cell">
+                <i class="bi bi-caret-left pass" onclick="passLeft()"></i>
+                <i class="bi bi-caret-right pass" onclick="passRight()"></i>
+            </div>
             <main>
+                <div id="icon-left" onclick="passLeft()">
+                    <i class="bi bi-caret-left pass"></i>
+                </div>
                 <div id="frame">
                     <iframe src="https://www.youtube.com/embed/ixz-r1iZZpU" frameborder="0"></iframe>
                 </div>
@@ -156,30 +218,37 @@
                     <footer id="other-info">
                         <div>
                             <header>
-                                <h4>Elenco</h4>
+                                <h5>Elenco:</h5>
                             </header>
                             <main>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
+                                <h6>Anya Taylor-Joy</h6>
+                                <h6>Bill Camp</h6>
+                                <h6>Moses Ingram</h6>
+                                <h6>Christiane Seidel</h6>
                             </main>
                         </div>
                         <div>
                             <header>
-                                <h4>Avaliação</h4>
+                                <h5>Avaliação:</h5>
                             </header>
                             <div>
-
+                                <span id="first-star" class="fa fa-star checked"></span>
+                                <span id="second-star" class="fa fa-star checked"></span>
+                                <span id="third-star" class="fa fa-star checked"></span>
+                                <span id="forth-star" class="fa fa-star"></span>
+                                <span id="fifth-star" class="fa fa-star"></span>
                             </div>
                         </div>
                     </footer>
                 </div>
+                <div id="icon-right" onclick="passRight()">
+                    <i class="bi bi-caret-right pass" ></i>
+                </div>
             </main>
             <footer id="carousel-ball">
-                <div id="first-circle" ball ></div>
-                <div id="second-circle" ball></div>
-                <div id="third-circle" ball ></div>
+                <div id="first-circle" ball class="active"></div>
+                <div id="second-circle" ball class="ball"></div>
+                <div id="third-circle" ball class="ball"></div>
             </footer>
         </div>
         <div>
@@ -212,6 +281,41 @@
 </body>
 <script>
     let sideBar = document.getElementById("sidebar");
+    let firstStar = document.getElementById("first-star");
+    let secondStar = document.getElementById("second-star");
+    let thirdStar = document.getElementById("third-star");
+    let forthStar = document.getElementById("forth-star");
+    let fifthStar = document.getElementById("fifth-star");
+    let firstCircle = document.getElementById("first-circle");
+    let secondCircle = document.getElementById("second-circle");
+    let thirdCircle = document.getElementById("third-circle");
+
+    function passRight(){
+        if(firstCircle.className == "active"){
+            firstCircle.className = "ball";
+            secondCircle.className = "active";
+        }else if(secondCircle.className == "active"){
+            thirdCircle.className = "active";
+            secondCircle.className = "ball";
+        }else{
+            thirdCircle.className = "ball";
+            firstCircle.className = "active";
+        }
+    }
+
+    function passLeft(){
+        if(firstCircle.className == "active"){
+            firstCircle.className = "ball";
+            thirdCircle.className = "active";
+        }else if(secondCircle.className == "active"){
+            firstCircle.className = "active";
+            secondCircle.className = "ball";
+        }else{
+            thirdCircle.className = "ball";
+            secondCircle.className = "active";
+        }
+    }
+
     function toggle(){
         sideBar.style.display = "flex";
     };
@@ -219,5 +323,38 @@
         sideBar.style.display = "none";
     }
 
+    document.onclick = function(event){
+        if(event.target.id === firstStar.id){
+            firstStar.className = "fa fa-star checked";
+            secondStar.className = "fa fa-star";
+            thirdStar.className = "fa fa-star";
+            forthStar.className = "fa fa-star";
+            fifthStar.className = "fa fa-star";
+        }else if(event.target.id === secondStar.id){
+            firstStar.className = "fa fa-star checked";
+            secondStar.className = "fa fa-star checked";
+            thirdStar.className = "fa fa-star";
+            forthStar.className = "fa fa-star";
+            fifthStar.className = "fa fa-star";
+        }else if(event.target.id === thirdStar.id){
+            firstStar.className = "fa fa-star checked";
+            secondStar.className = "fa fa-star checked";
+            thirdStar.className = "fa fa-star checked";
+            forthStar.className = "fa fa-star";
+            fifthStar.className = "fa fa-star";
+        }else if(event.target.id === forthStar.id){
+            firstStar.className = "fa fa-star checked";
+            secondStar.className = "fa fa-star checked";
+            thirdStar.className = "fa fa-star checked";
+            forthStar.className = "fa fa-star checked";
+            fifthStar.className = "fa fa-star";
+        }else if(event.target.id === fifthStar.id){
+            firstStar.className = "fa fa-star checked";
+            secondStar.className = "fa fa-star checked";
+            thirdStar.className = "fa fa-star checked";
+            forthStar.className = "fa fa-star checked";
+            fifthStar.className = "fa fa-star checked";
+        }
+    }
 </script>
 </html>
