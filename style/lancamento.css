@@ -117,3 +117,8 @@ body main #lancamentos #icon-left{
         margin-top: 10px;
     }
 }
+@media (max-height: 618px){
+    #other-info{
+        display: none;
+    }
+}
