@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+}
+#entrevistas .container .row iframe{
+    height: 20vh;
+    width: 20vw;
+}
+#novidades{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+#novidades #englobe-news{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    width: max-content;
+}
+#novidades #englobe-news header{
+    margin: 3vw 3vh;
+}
+#novidades #englobe-news .news{
+    margin: 3vw 3vh;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 60vw;
+    align-items: center;
+}
+#novidades #englobe-news .news div{
+    display: flex;
+    flex-direction: column;
+    max-width: 30vw;
+    margin-left: 10px;
+}
+#novidades #englobe-news .news img{
+    height: 140px;
+    width: 200px;
+}
+#novidades #other-column{
+    grid-column-start: 5;
+    grid-column-end: 7;
+}
+#novidades #other-column #sobre{
+    margin: 3vw 3vh;
+}
+#editorial{
+    margin: 3vw 3vh;
+}
+#editorial .composer{
+    display: flex;
+}
+.p-bold{
+    font-weight: bold;
+}
+@media (max-width:610px){
+    #entrevistas .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #entrevistas .container .col-sm{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #entrevistas .container .col-sm iframe{
+        width: 100%;
+    }
+    #novidades{
+        display: flex;
+        flex-direction: column;
+    }
+    #novidades #englobe-news .news{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+    #novidades #englobe-news .news div{
+        max-width: 60vw;
+        justify-content: center;
+        align-items: center;
+    }
+    #editorial footer header div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    body main #entrevistas .container .row .col-sm{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

@@ -11,55 +11,19 @@
     <link rel="stylesheet" href="./style/navbar.css">
     <link rel="stylesheet" href="./style/lancamento.css">
     <link rel="stylesheet" href="./style/destaque.css">
-    <title>Trabalho de diw 1</title>
+    <link rel="stylesheet" href="./style/ohterInfo.css">
     <style>
         *{
-            margin: 0;
-        }
-        #entrevistas .container .row iframe{
-            height: 20vh;
-            width: 20vw;
-        }
-        #novidades{
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-        }
-        #novidades #englobe-news{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            grid-column-start: 1;
-            grid-column-end: 5;
-            width: max-content;
-        }
-        #novidades #englobe-news header{
-            margin: 3vw 3vh;
-        }
-        #novidades #englobe-news .news{
-            margin: 3vw 3vh;
-            display: flex;
-            flex-wrap: wrap;
-            max-width: 60vw;
-            align-items: center;
-        }
-        #novidades #englobe-news .news div{
-            display: flex;
-            flex-direction: column;
-            max-width: 30vw;
-            margin-left: 10px;
-        }
-        #novidades #englobe-news .news img{
-            height: 140px;
-            width: 200px;
-        }
-        #novidades #other-column{
-            grid-column-start: 5;
-            grid-column-end: 7;
-        }
-        #novidades #other-column #sobre{
-            margin: 3vw 3vh;
-        }
+        margin: 0;
+    }
+    img.avaliador{
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        margin: 0;
+    }
     </style>
+    <title>Trabalho de diw 1</title>
 </head>
 <body>
     <nav id="navbar">
@@ -199,16 +163,16 @@
                 <div class="container">
                     <div class="row" id="pics">
                         <div class="col-sm pic">
-                            <img src="perfil.JPG" alt="">
+                            <img src="images/batman.jpg" alt="Batman">
                         </div>
                         <div class="col-sm pic">
-                            <img src="perfil.JPG" alt="">
+                            <img src="images/morbius.jpg" alt="Morbius">
                         </div>
                         <div class="col-sm pic">
-                            <img src="perfil.JPG" alt="">
+                            <img src="images/shazam.jpg" alt="Shazam">
                         </div>
                         <div class="col-sm pic">
-                            <img src="perfil.JPG" alt="">
+                            <img src="images/sonic2.jpg" alt="Sonic2">
                         </div>
                     </div>
                     <div class="row button-carregar-div" >
@@ -228,7 +192,7 @@
                         <div class="col-sm">
                             <div>
                                 <div class="round">
-    
+                                    <img src="perfil.JPG" alt="Avaliador1" class="avaliador">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -246,7 +210,7 @@
                         <div class="col-sm">
                             <div>
                                 <div class="round">
-    
+                                    <img src="perfil.JPG" alt="Avaliador1" class="avaliador">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -264,7 +228,7 @@
                         <div class="col-sm">
                             <div>
                                 <div class="round">
-    
+                                    <img src="perfil.JPG" alt="Avaliador1" class="avaliador">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -365,11 +329,21 @@
                         </div>
                     </div>
                     <div id="editorial">
+                        <header>
+                            <h1>Editorial</h1>
+                        </header>
                         <div class="composer">
-
+                            <i class="bi bi-person-fill"></i>
+                            <p><span class="p-bold">Redator:</span> Lucas Lotti</p>
                         </div>
-                        <div class="composer"></div>
-                        <div class="composer"></div>
+                        <div class="composer">
+                            <i class="bi bi-person-fill"></i>
+                            <p><span class="p-bold">Desenvolvedor:</span> Lucas Lotti</p>
+                        </div>
+                        <div class="composer">
+                            <i class="bi bi-person-fill"></i>
+                            <p><span class="p-bold">Designer:</span> Lucas Lotti</p>
+                        </div>
                         <footer>
                             <header>
                                 <h6>redes sociais</h6>
