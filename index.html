@@ -16,12 +16,6 @@
         *{
         margin: 0;
     }
-    img.avaliador{
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        margin: 0;
-    }
     </style>
     <title>Trabalho de diw 1</title>
 </head>
@@ -33,10 +27,10 @@
         </header>
         <main id="redirect">
             <a href="#lancamentos">lançamentos</a>
-            <a href="">em destaque</a>
-            <a href="">avaliações</a>
-            <a href="">entrevista & makingof</a>
-            <a href="">novidades</a>
+            <a href="#destaque">em destaque</a>
+            <a href="#destaque">avaliações</a>
+            <a href="#entrevistas">entrevista & makingof</a>
+            <a href="#novidades">novidades</a>
         </main>
         <aside id="input-div">
             <div class="input-group">
@@ -52,11 +46,11 @@
                 <h1>PAlucas</h1>
             </header>
             <main>
-                <a href="#lancamentos">lançamentos</a>
-                <a href="">em destaque</a>
-                <a href="">avaliações</a>
-                <a href="">entrevista & makingof</a>
-                <a href="">novidades</a>
+                <a href="#lancamentos" onclick="invertToggle()">lançamentos</a>
+                <a href="#destaque" onclick="invertToggle()">em destaque</a>
+                <a href="#destaque" onclick="invertToggle()">avaliações</a>
+                <a href="#entrevistas" onclick="invertToggle()">entrevista & makingof</a>
+                <a href="#novidades" onclick="invertToggle()">novidades</a>
                 <i class="bi bi-arrow-right" id="hide-sidebar" onclick="invertToggle()"></i>
             </main>
         </aside>
@@ -69,10 +63,10 @@
         <div class="modal fade" id="modalCell" tabindex="-1" role="dialog" aria-labelledby="modalCell" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <a href="#lancamentos">lançamentos</a>
-                <a href="">em destaque</a>
-                <a href="">avaliações</a>
-                <a href="">entrevista & makingof</a>
-                <a href="">novidades</a>
+                <a href="#destaque">em destaque</a>
+                <a href="#destaque">avaliações</a>
+                <a href="#entrevistas">entrevista & makingof</a>
+                <a href="#novidades">novidades</a>
             </div>
           </div>
     </nav>
@@ -262,22 +256,19 @@
                 </div>
                 <div class="row">
                     <div class="col-sm">
-                        <iframe src="https://www.youtube.com/embed/6fszFenWwoU" frameborder="0"></iframe>
-                        <p><span>Filme:</span>oi</p>
-                        <h6>Oi</h6>
-                        <h6>Oi</h6>
+                        <iframe src="https://www.youtube.com/embed/On8S4X_j5Io&t=1s" frameborder="0"></iframe>
+                        <p><span class="p-bold">Filme:</span>Batman</p>
+                        <p><span class="p-bold">Diretor:</span>Matt Reeves</p>
                     </div>
                     <div class="col-sm">
-                        <iframe src="https://www.youtube.com/embed/6fszFenWwoU" frameborder="0"></iframe>
-                        <p><span>Filme:</span>oi</p>
-                        <h6>Oi</h6>
-                        <h6>Oi</h6>
+                        <iframe src="https://www.youtube.com/embed/1T0Dr8GIyCE" frameborder="0"></iframe>
+                        <p><span class="p-bold">Filme:</span>Morbius</p>
+                        <p><span class="p-bold">Diretor:</span>Daniel Espinosa</p>
                     </div>
                     <div class="col-sm">
-                        <iframe src="https://www.youtube.com/embed/6fszFenWwoU" frameborder="0"></iframe>
-                        <p><span>Filme:</span>oi</p>
-                        <h6>Oi</h6>
-                        <h6>Oi</h6>
+                        <iframe src="https://www.youtube.com/embed/sv5qeobsaBw" frameborder="0"></iframe>
+                        <p><span class="p-bold">Filme:</span>Shazam</p>
+                        <p><span class="p-bold">Diretor:</span>David F. Sandberg</p>
                     </div>
                 </div>
                 <div class="row">
