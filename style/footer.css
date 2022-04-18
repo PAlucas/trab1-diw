@@ -1,0 +1,25 @@
+body #footer-page{
+    background-color: #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+body #footer-page div{
+    display: flex;
+    height: 10vh;
+    align-items: center;
+}
+body #footer-page div p{
+    margin-bottom: 0.5rem;
+    margin-left: 10px;
+    font-size: small;
+}
+body #footer-page #logo-footer{
+    margin-right: 10px;
+}
+body #footer-page #logo-footer #pic-logo-footer{
+    height: 8vh;
+    border-radius: 50%;
+}
+body #footer-page #logo-footer #title-write-footer{
+    font-style: italic;
+}
