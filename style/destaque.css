@@ -27,6 +27,9 @@
     justify-content: center;
     align-items: center;
 }
+#pics{
+    overflow-y:scroll;
+}
 .container .row:not(:first-of-type){
     margin-top: 10px;
 }
@@ -43,12 +46,18 @@
     width: 18vw;
     min-width: 226px;
 }
+
 .fa-star{
     cursor:pointer;
 }
+
 img.avaliador{
     height: 50px;
     width: 50px;
     border-radius: 50%;
     margin: 0;
+}
+
+.filme_detalhes{
+    cursor: pointer;
 }

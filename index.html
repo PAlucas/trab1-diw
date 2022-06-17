@@ -8,7 +8,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+    integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
@@ -29,9 +37,9 @@
         border-radius: 5px;
     }
     </style>
-    <title>Trabalho de diw 1</title>
+    <title>Trabalho de diw</title>
 </head>
-<body>
+<body onload="iniciarPagina()">
     <nav id="navbar">
         <header id="logo-div">
             <img id="pic-logo" src="perfil.JPG" alt="foto-logo">
@@ -168,26 +176,43 @@
                 </div>
                 <div class="container">
                     <div class="row" id="pics">
-                        <div class="col-sm pic">
-                            <img src="images/batman.jpg" alt="Batman">
-                        </div>
-                        <div class="col-sm pic">
-                            <img src="images/morbius.jpg" alt="Morbius">
-                        </div>
-                        <div class="col-sm pic">
-                            <img src="images/shazam.jpg" alt="Shazam">
-                        </div>
-                        <div class="col-sm pic">
-                            <img src="images/sonic2.jpg" alt="Sonic2">
-                        </div>
                     </div>
                     <div class="row button-carregar-div" >
-                        <button class="button-carregar">
+                        <button type="button" class="button-carregar" data-toggle="modal" data-target="#exampleModal">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
                             </svg>
                             Carregar mais filmes
                         </button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Adicionar Filme</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-row">
+                                          <div class="col">
+                                            <input type="text" class="form-control" placeholder="First name" id="inputFilmes">
+                                          </div>
+                                          <div class="col">
+                                            <select class="form-select" aria-label="Default select example" id="dropFilmes">
+                                                <option selected>Open this select menu</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-primary" onclick="addFilmeModal()">Adicionar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="row" id="avaliacoes">
                         <header class="header-destaque">
@@ -250,14 +275,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row button-carregar-div">
-                        <button class="button-carregar">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                            </svg>
-                            Carregar mais Avalia√ß√µes
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -281,16 +298,6 @@
                         <iframe src="https://www.youtube.com/embed/sv5qeobsaBw" frameborder="0"></iframe>
                         <p><span class="p-bold">Filme:</span>Shazam</p>
                         <p><span class="p-bold">Diretor:</span>David F. Sandberg</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="row button-carregar-div">
-                        <button class="button-carregar">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                            </svg>
-                            Carregar mais Avalia√ß√µes
-                        </button>
                     </div>
                 </div>
             </div>
@@ -379,186 +386,84 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 <script>
-    let sideBar = document.getElementById("sidebar");
-    let firstStar = document.getElementById("first-star");
-    let secondStar = document.getElementById("second-star");
-    let thirdStar = document.getElementById("third-star");
-    let forthStar = document.getElementById("forth-star");
-    let fifthStar = document.getElementById("fifth-star");
-    let firstCircle = document.getElementById("first-circle");
-    let secondCircle = document.getElementById("second-circle");
-    let thirdCircle = document.getElementById("third-circle");
-    let firstStar0 = document.getElementById("first-star-0");
-    let secondStar0 = document.getElementById("second-star-0");
-    let thirdStar0 = document.getElementById("third-star-0");
-    let forthStar0 = document.getElementById("forth-star-0");
-    let fifthStar0 = document.getElementById("fifth-star-0");
-    let firstStar1 = document.getElementById("first-star-1");
-    let secondStar1 = document.getElementById("second-star-1");
-    let thirdStar1 = document.getElementById("third-star-1");
-    let forthStar1 = document.getElementById("forth-star-1");
-    let fifthStar1 = document.getElementById("fifth-star-1");
-    let firstStar2 = document.getElementById("first-star-2");
-    let secondStar2 = document.getElementById("second-star-2");
-    let thirdStar2 = document.getElementById("third-star-2");
-    let forthStar2 = document.getElementById("forth-star-2");
-    let fifthStar2 = document.getElementById("fifth-star-2");
+    let input = document.querySelector("#inputFilmes");
+    let dropFilmes = document.querySelector("#dropFilmes");
+    let arrayFilmes = new Array();
+    let divImagens = document.querySelector("#pics");
+    const apiKey = '15ff2e0c43be1c67ac849fb79c16bf8b';
+    let filmes = [
+        {"adult":false,"backdrop_path":"/hcNM0HjfPonIzOVy6LVTDBXSfMq.jpg","genre_ids":[28,53,80],"id":864116,"original_language":"en","original_title":"A Day to Die","overview":"O ex-oficial de operaÁıes militares Connor Connolly tem um dia para pagar US$ 2 milhıes em reparaÁıes a um lÌder de gangue local para salvar sua esposa sequestrada. Com a vida dela em jogo, Connor deve recrutar sua antiga equipe, liderada por Brice Mason, para realizar uma sÈrie de assaltos perigosos para pagar o dinheiro que ele deve e acertar contas com o chefe de polÌcia corrupto da cidade.  Em uma corrida contra o tempo, a equipe deve confiar em seu treinamento t·tico e irmandade para salvar a si mesmos e aqueles que mais importam.","popularity":2847.136,"poster_path":"/dzDEob3PyiGY25TxmeDx1yfifEP.jpg","release_date":"2022-03-04","title":"Um Dia para Morrer","video":false,"vote_average":6,"vote_count":61},
+        {"adult":false,"backdrop_path":"/egoyMDLqCxzjnSrWOz50uLlJWmD.jpg","genre_ids":[28,12,10751,35],"id":675353,"original_language":"en","original_title":"Sonic the Hedgehog 2","overview":"Depois de se estabelecer em Green Hills, Sonic est· pronto para mais liberdade e deixar sua marca como um herÛi, e Tom e Maddie concordam em deix·-lo em casa enquanto v„o de fÈrias. Mas, assim que eles se foram, Dr. Robotnik volta, desta vez com um novo parceiro, Knuckles, em busca de uma esmeralda que tem o poder de construir e destruir civilizaÁıes. Sonic se une a um novo companheiro, Tails, e juntos eles embarcam em uma jornada para encontrar a esmeralda antes que ela caia nas m„os erradas.","popularity":2984.257,"poster_path":"/f4SvCKIUrC2cDR7Xo4k1kaGAqQ2.jpg","release_date":"2022-03-30","title":"Sonic 2: O Filme","video":false,"vote_average":7.7,"vote_count":2061},
+        {"adult":false,"backdrop_path":"/1Ds7xy7ILo8u2WWxdnkJth1jQVT.jpg","genre_ids":[28,12,35],"id":752623,"original_language":"en","original_title":"The Lost City","overview":"Uma romancista reclusa acredita que nada seria pior que fazer a turnÍ do seu livro mais recente com o modelo que ilustra a capa. Tudo muda quando a autora e o modelo sofrem uma tentativa de sequestro, e, com isso, s„o levados para uma surpreendente aventura na selva.","popularity":3190.602,"poster_path":"/vsX9gj7t56ZlMYKNYccskeW5adT.jpg","release_date":"2022-03-24","title":"Cidade Perdida","video":false,"vote_average":6.8,"vote_count":1182},
+        {"adult":false,"backdrop_path":"/kmCBLNHsNnlDEtghSaF2nabpG2T.jpg","genre_ids":[28,878,14],"id":526896,"original_language":"en","original_title":"Morbius","overview":"Gravemente doente com um raro dist˙rbio sanguÌneo e determinado a salvar outros sofrendo o mesmo destino, o Dr. Morbius tenta uma aposta desesperada. O que primeiramente parece ser um sucesso radical, libera uma escurid„o dentro dele e transforma esse mÈdico em um caÁador.","popularity":3124.049,"poster_path":"/6JjfSchsU6daXk2AKX8EEBjO3Fm.jpg","release_date":"2022-03-30","title":"Morbius","video":false,"vote_average":6.4,"vote_count":1665},
+    ]
 
-    function passRight(){
-        if(firstCircle.className == "active"){
-            firstCircle.className = "ball";
-            secondCircle.className = "active";
-        }else if(secondCircle.className == "active"){
-            thirdCircle.className = "active";
-            secondCircle.className = "ball";
-        }else{
-            thirdCircle.className = "ball";
-            firstCircle.className = "active";
+    function exibirFilmes(){
+        $("#pics").html("");
+        let Storagelocal = JSON.parse(localStorage.getItem('filmes'));
+        Storagelocal.forEach((valores) =>{
+            $("#pics").append(`
+                <div class="col-sm pic">
+                    <img class="filme_detalhes" src=https://image.tmdb.org/t/p/w500/${valores["poster_path"]} alt="${valores.title}" onclick="direcionarDestaque('${valores.title}')">
+                </div>
+            `)
+        })
+    }
+
+    function iniciarPagina(){
+        if(localStorage.getItem('filmes') == null){
+            localStorage.setItem('filmes',JSON.stringify(filmes)); 
+            exibirFilmes();
+        } else {
+            exibirFilmes();
         }
     }
 
-    function passLeft(){
-        if(firstCircle.className == "active"){
-            firstCircle.className = "ball";
-            thirdCircle.className = "active";
-        }else if(secondCircle.className == "active"){
-            firstCircle.className = "active";
-            secondCircle.className = "ball";
-        }else{
-            thirdCircle.className = "ball";
-            secondCircle.className = "active";
+    function direcionarDestaque(title){
+        window.location.assign(`destaque.html?title=${title}`)
+    }
+    
+    document.querySelector('select').addEventListener('change', function(){
+        console.log($(this).attr("select", `${$(this).val()}`))
+    });
+
+    function addFilmeModal(){
+        if($("select").attr("select") === "Selecionar filme"){
+            return alert("Selecionar filme");
         }
+        if($("select").attr("select") === undefined){
+            return alert("Selecionar filme");
+        }
+        let novoFilme = JSON.parse(localStorage.getItem('filmes'));
+        novoFilme.push(arrayFilmes[$("select").attr("select")]);
+        localStorage.setItem('filmes',JSON.stringify(novoFilme)); 
+        alert(`${arrayFilmes[$("select").attr("select")].title} adicionado refresh para ver`)
+    }
+    input.onchange = () =>{
+        let contador = 0;
+        arrayFilmes = [];
+        console.log(contador);
+        $("#dropFilmes").empty();
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=pt-BR&query=${input.value}`)
+        .then((res) => res.json())
+        .then((res) => {
+            res.results.forEach((valor) =>{
+                if(contador === 0){
+                    contador++; 
+                    return $("#dropFilmes").append(`<option>Selecionar filme</option>`)
+                    
+                } else {
+                    arrayFilmes.push(valor);
+                    contador ++;
+                    return $("#dropFilmes").append(`<option value="${contador - 2 }" >${valor['original_title']}</option>`)
+                }
+                
+            })
+            
+        })
     }
 
-    function toggle(){
-        sideBar.style.display = "flex";
-    };
-    function invertToggle(){
-        sideBar.style.display = "none";
-    }
 
-    document.onclick = function(event){
-        if(event.target.id === firstStar.id){
-            firstStar.className = "fa fa-star checked";
-            secondStar.className = "fa fa-star";
-            thirdStar.className = "fa fa-star";
-            forthStar.className = "fa fa-star";
-            fifthStar.className = "fa fa-star";
-        }else if(event.target.id === secondStar.id){
-            firstStar.className = "fa fa-star checked";
-            secondStar.className = "fa fa-star checked";
-            thirdStar.className = "fa fa-star";
-            forthStar.className = "fa fa-star";
-            fifthStar.className = "fa fa-star";
-        }else if(event.target.id === thirdStar.id){
-            firstStar.className = "fa fa-star checked";
-            secondStar.className = "fa fa-star checked";
-            thirdStar.className = "fa fa-star checked";
-            forthStar.className = "fa fa-star";
-            fifthStar.className = "fa fa-star";
-        }else if(event.target.id === forthStar.id){
-            firstStar.className = "fa fa-star checked";
-            secondStar.className = "fa fa-star checked";
-            thirdStar.className = "fa fa-star checked";
-            forthStar.className = "fa fa-star checked";
-            fifthStar.className = "fa fa-star";
-        }else if(event.target.id === fifthStar.id){
-            firstStar.className = "fa fa-star checked";
-            secondStar.className = "fa fa-star checked";
-            thirdStar.className = "fa fa-star checked";
-            forthStar.className = "fa fa-star checked";
-            fifthStar.className = "fa fa-star checked";
-        }else if(event.target.id === firstStar0.id){
-            firstStar0.className = "fa fa-star checked";
-            secondStar0.className = "fa fa-star";
-            thirdStar0.className = "fa fa-star";
-            forthStar0.className = "fa fa-star";
-            fifthStar0.className = "fa fa-star";
-        }else if(event.target.id === secondStar0.id){
-            firstStar0.className = "fa fa-star checked";
-            secondStar0.className = "fa fa-star checked";
-            thirdStar0.className = "fa fa-star";
-            forthStar0.className = "fa fa-star";
-            fifthStar0.className = "fa fa-star";
-        }else if(event.target.id === thirdStar0.id){
-            firstStar0.className = "fa fa-star checked";
-            secondStar0.className = "fa fa-star checked";
-            thirdStar0.className = "fa fa-star checked";
-            forthStar0.className = "fa fa-star";
-            fifthStar0.className = "fa fa-star";
-        }else if(event.target.id === forthStar0.id){
-            firstStar0.className = "fa fa-star checked";
-            secondStar0.className = "fa fa-star checked";
-            thirdStar0.className = "fa fa-star checked";
-            forthStar0.className = "fa fa-star checked";
-            fifthStar0.className = "fa fa-star";
-        }else if(event.target.id === fifthStar0.id){
-            firstStar0.className = "fa fa-star checked";
-            secondStar0.className = "fa fa-star checked";
-            thirdStar0.className = "fa fa-star checked";
-            forthStar0.className = "fa fa-star checked";
-            fifthStar0.className = "fa fa-star checked";
-        }else if(event.target.id === firstStar1.id){
-            firstStar1.className = "fa fa-star checked";
-            secondStar1.className = "fa fa-star";
-            thirdStar1.className = "fa fa-star";
-            forthStar1.className = "fa fa-star";
-            fifthStar1.className = "fa fa-star";
-        }else if(event.target.id === secondStar1.id){
-            firstStar1.className = "fa fa-star checked";
-            secondStar1.className = "fa fa-star checked";
-            thirdStar1.className = "fa fa-star";
-            forthStar1.className = "fa fa-star";
-            fifthStar1.className = "fa fa-star";
-        }else if(event.target.id === thirdStar1.id){
-            firstStar1.className = "fa fa-star checked";
-            secondStar1.className = "fa fa-star checked";
-            thirdStar1.className = "fa fa-star checked";
-            forthStar1.className = "fa fa-star";
-            fifthStar1.className = "fa fa-star";
-        }else if(event.target.id === forthStar1.id){
-            firstStar1.className = "fa fa-star checked";
-            secondStar1.className = "fa fa-star checked";
-            thirdStar1.className = "fa fa-star checked";
-            forthStar1.className = "fa fa-star checked";
-            fifthStar1.className = "fa fa-star";
-        }else if(event.target.id === fifthStar1.id){
-            firstStar1.className = "fa fa-star checked";
-            secondStar1.className = "fa fa-star checked";
-            thirdStar1.className = "fa fa-star checked";
-            forthStar1.className = "fa fa-star checked";
-            fifthStar1.className = "fa fa-star checked";
-        }else if(event.target.id === firstStar2.id){
-            firstStar2.className = "fa fa-star checked";
-            secondStar2.className = "fa fa-star";
-            thirdStar2.className = "fa fa-star";
-            forthStar2.className = "fa fa-star";
-            fifthStar2.className = "fa fa-star";
-        }else if(event.target.id === secondStar2.id){
-            firstStar2.className = "fa fa-star checked";
-            secondStar2.className = "fa fa-star checked";
-            thirdStar2.className = "fa fa-star";
-            forthStar2.className = "fa fa-star";
-            fifthStar2.className = "fa fa-star";
-        }else if(event.target.id === thirdStar2.id){
-            firstStar2.className = "fa fa-star checked";
-            secondStar2.className = "fa fa-star checked";
-            thirdStar2.className = "fa fa-star checked";
-            forthStar2.className = "fa fa-star";
-            fifthStar2.className = "fa fa-star";
-        }else if(event.target.id === forthStar2.id){
-            firstStar2.className = "fa fa-star checked";
-            secondStar2.className = "fa fa-star checked";
-            thirdStar2.className = "fa fa-star checked";
-            forthStar2.className = "fa fa-star checked";
-            fifthStar2.className = "fa fa-star";
-        }else if(event.target.id === fifthStar2.id){
-            firstStar2.className = "fa fa-star checked";
-            secondStar2.className = "fa fa-star checked";
-            thirdStar2.className = "fa fa-star checked";
-            forthStar2.className = "fa fa-star checked";
-            fifthStar2.className = "fa fa-star checked";
-        }
-    }
 </script>
+<script src="./basicfunctions.js"></script>
 </html>
