@@ -29,6 +29,7 @@
 }
 #pics{
     overflow-y:scroll;
+    max-height: 270px;
 }
 .container .row:not(:first-of-type){
     margin-top: 10px;
@@ -60,4 +61,9 @@ img.avaliador{
 
 .filme_detalhes{
     cursor: pointer;
+}
+
+.movieTitle{
+    display: flex;
+    flex-direction: column;
 }

@@ -403,8 +403,9 @@
         let Storagelocal = JSON.parse(localStorage.getItem('filmes'));
         Storagelocal.forEach((valores) =>{
             $("#pics").append(`
-                <div class="col-sm pic">
+                <div class="col-sm pic movieTitle">
                     <img class="filme_detalhes" src=https://image.tmdb.org/t/p/w500/${valores["poster_path"]} alt="${valores.title}" onclick="direcionarDestaque('${valores.title}')">
+                    <h5>${valores.title}</h5>
                 </div>
             `)
         })
