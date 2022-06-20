@@ -5,8 +5,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trabalho de diw</title>
+    <link rel="stylesheet" href="./style/navbar.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+        }
+        #infoMovie{
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 10px;
+        }
+        #infoMovie .info main{
+            max-width: 400px;
+        }
+    </style>
 </head>
-<body>
-    <nav></nav>
+<body onload="onLoad()"> 
+    <nav id="navbar">
+        <header id="logo-div" onclick="direcionar()">
+            <img id="pic-logo" src="perfil.JPG" alt="foto-logo">
+            <h1 id="title-write"><a href="./index.html">PAlucas</a></h1>
+        </header>
+    </nav>
+    <main id="infoMovie">
+
+    </main>
 </body>
+<script>
+    const apiKey = '15ff2e0c43be1c67ac849fb79c16bf8b';
+    const URLParams = new URLSearchParams(window.location.search);
+    
+    function onLoad(){
+        $("#infoMovie").empty();
+        const params = URLParams.get('title')
+        fetch(`https://api.themoviedb.org/3/movie/${params}?api_key=${apiKey}&language=pt-BR`)
+            .then((res) => res.json())
+            .then((res) => {
+                let generos = "";
+                res.genres.forEach(element => {
+                    generos = `${generos} ${element.name}`;
+                });
+                console.log(res);
+                $("#infoMovie").append(`
+                    <div class="info">
+                        <header>
+                            <h1>${res.title}</h1>
+                            <h4>${generos}</h4>
+                        </header>
+                        <main>
+                            <p>${res.overview}</p>
+                        </main>
+                        <footer>
+                            <p><span style="font-weight: 'bold';">${res['release_date']}</span></p>
+                        </footer>
+                    </div>
+                    <div id="img-div">
+                        <img src="https://image.tmdb.org/t/p/w500/${res['backdrop_path']}"></img>
+                    </div>
+                `);
+            })
+    }
+    function direcionar(){
+        window.location.assign = "./index.html";
+    }
+</script>
 </html>

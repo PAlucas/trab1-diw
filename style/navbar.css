@@ -35,6 +35,9 @@ body nav aside#input-div{
     align-items: center;
     margin: 0 10px;
 }
+#iconInput:hover{
+    cursor:default;
+}
 body nav aside#sidebar{
     background-color: #fff;
     display: none;
@@ -96,21 +99,14 @@ body nav #modalCell div a{
     color: #fff;
 }
 @media (min-width:700px) and (max-width:1020px){
-    body nav aside#input-div{
-        display: none;
-    }
     body nav main#redirect{
-        width: 85vw;
-        justify-content: end;
+        display:none;
     }
     body nav main#redirect a{
         margin: 0 5px 0 0;
     }
 }
 @media (min-width:480px) and (max-width:700px){
-    body nav aside#input-div{
-        display: none;
-    }
     body nav main#redirect{
         display:none;
     }
@@ -122,11 +118,11 @@ body nav #modalCell div a{
     }
 }
 @media (max-width:480px){
+    #title-write{
+        display: none;
+    }
     body nav#navbar{
         justify-content: space-between;
-    }
-    body nav aside#input-div{
-        display: none;
     }
     body nav main#redirect{
         display:none;
