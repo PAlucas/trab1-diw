@@ -22,32 +22,66 @@ let secondStar2 = document.getElementById("second-star-2");
 let thirdStar2 = document.getElementById("third-star-2");
 let forthStar2 = document.getElementById("forth-star-2");
 let fifthStar2 = document.getElementById("fifth-star-2");
+let firstCard = document.querySelector("#first-card");
+let firstCardInfo = document.querySelector("#first-card-info");
+let secondCard = document.querySelector("#second-card");
+let secondCardInfo = document.querySelector("#second-card-info");
+let thirdCard = document.querySelector("#third-card");
+let thirdCardInfo = document.querySelector("#third-card-info");
 
 function passRight(){
-    if(firstCircle.className == "active"){
+    if(firstCircle.className == "active" && firstCard.style.display == "block"){
         firstCircle.className = "ball";
         secondCircle.className = "active";
-    }else if(secondCircle.className == "active"){
+        firstCard.style.display = "none";
+        firstCardInfo.style.display = "none";
+        secondCard.style.display = "block";
+        secondCardInfo.style.display = "block";
+    }else if(secondCircle.className == "active" && secondCard.style.display == "block"){
         thirdCircle.className = "active";
         secondCircle.className = "ball";
+        secondCard.style.display = "none";
+        secondCardInfo.style.display = "none";
+        thirdCard.style.display = "block";
+        thirdCardInfo.style.display = "block";
     }else{
         thirdCircle.className = "ball";
         firstCircle.className = "active";
+        thirdCard.style.display = "none";
+        thirdCardInfo.style.display = "none";
+        firstCard.style.display = "block";
+        firstCardInfo.style.display = "block";
     }
 }
 
 function passLeft(){
-    if(firstCircle.className == "active"){
+    if(firstCircle.className == "active" && firstCard.style.display == "block"){
         firstCircle.className = "ball";
         thirdCircle.className = "active";
-    }else if(secondCircle.className == "active"){
+        firstCard.style.display = "none";
+        firstCardInfo.style.display = "none";
+        thirdCard.style.display = "block";
+        thirdCardInfo.style.display = "block";
+    }else if(secondCircle.className == "active" && secondCard.style.display == "block"){
         firstCircle.className = "active";
         secondCircle.className = "ball";
+        secondCard.style.display = "none";
+        secondCardInfo.style.display = "none";
+        firstCard.style.display = "block";
+        firstCardInfo.style.display = "block";
     }else{
         thirdCircle.className = "ball";
         secondCircle.className = "active";
+        thirdCard.style.display = "none";
+        thirdCardInfo.style.display = "none";
+        secondCard.style.display = "block";
+        secondCardInfo.style.display = "block";
     }
 }
+
+setInterval(() => {
+    passRight();
+}, 7000);
 
 function toggle(){
     sideBar.style.display = "flex";
